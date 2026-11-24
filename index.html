@@ -1,0 +1,2967 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#10091d">
+        <title>Telegram Shop | فروشگاه خدمات تلگرام</title>
+        <meta name="description" content="فروشگاه خدمات تلگرام و اینستاگرام؛ ثبت سفارش ممبر، بازدید، استار و خدمات اینستاگرام.">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap'); :root {
+                --bg: #10091d;
+                --bg2: #0b0713;
+                --panel: #21112f;
+                --panel2: #281638;
+                --panel3: #321b40;
+                --line: rgba(240,0,255,.22);
+                --line2: rgba(0,245,212,.2);
+                --pink: #f000ff;
+                --cyan: #00f5d4;
+                --text: #fff2ff;
+                --muted: #c1a9c9;
+                --danger: #ff5577;
+                --good: #38e6a6;
+                --shadow: 0 18px 60px rgba(0,0,0,.38);
+                --glow: 0 0 22px rgba(240,0,255,.25),0 0 44px rgba(0,245,212,.08);
+                --radius: 22px
+            }
+
+            * {
+                box-sizing: border-box
+            }
+
+            html {
+                scroll-behavior: smooth
+            }
+
+            body {
+                margin: 0;
+                background: radial-gradient(ellipse at 80% 0%,rgba(126,24,153,.23),transparent 34%),radial-gradient(ellipse at 0% 40%,rgba(0,245,212,.08),transparent 30%),var(--bg);
+                color: var(--text);
+                font-family: Vazirmatn,Tahoma,sans-serif;
+                line-height: 1.8;
+                min-height: 100vh
+            }
+
+            body:before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                z-index: -1;
+                background-image: linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+                background-size: 42px 42px;
+                mask-image: linear-gradient(to bottom,black,transparent 85%)
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none
+            }
+
+            button,input,select {
+                font: inherit
+            }
+
+            button {
+                cursor: pointer
+            }
+
+            .container {
+                width: min(1160px,calc(100% - 36px));
+                margin: auto
+            }
+
+            .topline {
+                height: 4px;
+                background: linear-gradient(90deg,var(--cyan),var(--pink),var(--cyan));
+                box-shadow: 0 0 18px var(--pink)
+            }
+
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 30;
+                background: rgba(16,9,29,.84);
+                backdrop-filter: blur(18px);
+                border-bottom: 1px solid var(--line)
+            }
+
+            .nav {
+                height: 78px;
+                display: flex;
+                align-items: center;
+                gap: 28px
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                white-space: nowrap
+            }
+
+            .brand-mark {
+                width: 43px;
+                height: 43px;
+                border-radius: 15px;
+                background: linear-gradient(135deg,var(--pink),#8b32ff 55%,var(--cyan));
+                display: grid;
+                place-items: center;
+                box-shadow: 0 0 24px rgba(240,0,255,.38);
+                transform: rotate(-5deg)
+            }
+
+            .brand-mark svg {
+                width: 25px;
+                height: 25px;
+                fill: #fff
+            }
+
+            .brand-name {
+                font-size: 18px;
+                font-weight: 900;
+                letter-spacing: .2px
+            }
+
+            .brand-name span {
+                color: var(--cyan)
+            }
+
+            .navlinks {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                margin-inline-start:auto;color: var(--muted);
+                font-size: 13px
+            }
+
+            .navlinks a:hover {
+                color: var(--cyan)
+            }
+
+            .nav-actions {
+                display: flex;
+                align-items: center;
+                gap: 9px
+            }
+
+            .icon-btn {
+                width: 43px;
+                height: 43px;
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                background: rgba(255,255,255,.035);
+                color: var(--text);
+                display: grid;
+                place-items: center;
+                position: relative
+            }
+
+            .icon-btn:hover {
+                border-color: var(--cyan);
+                box-shadow: 0 0 16px rgba(0,245,212,.15)
+            }
+
+            .icon-btn svg {
+                width: 20px;
+                height: 20px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 1.8
+            }
+
+            .cart-count {
+                position: absolute;
+                top: -6px;
+                left: -5px;
+                min-width: 19px;
+                height: 19px;
+                padding: 0 5px;
+                border-radius: 20px;
+                background: var(--pink);
+                color: #fff;
+                font-size: 10px;
+                font-weight: 800;
+                display: grid;
+                place-items: center
+            }
+
+            .mobile-menu {
+                display: none
+            }
+
+            .hero {
+                padding: 78px 0 48px;
+                position: relative;
+                overflow: hidden
+            }
+
+            .hero:after {
+                content: "";
+                position: absolute;
+                width: 410px;
+                height: 410px;
+                border: 1px solid rgba(240,0,255,.13);
+                border-radius: 50%;
+                left: -130px;
+                top: 25px;
+                box-shadow: 0 0 0 35px rgba(240,0,255,.025),0 0 0 80px rgba(0,245,212,.02);
+                pointer-events: none
+            }
+
+            .hero-grid {
+                display: grid;
+                grid-template-columns: 1.1fr .9fr;
+                align-items: center;
+                gap: 55px;
+                position: relative;
+                z-index: 1
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 9px;
+                border: 1px solid var(--line2);
+                padding: 7px 13px;
+                border-radius: 30px;
+                color: var(--cyan);
+                font-size: 12px;
+                background: rgba(0,245,212,.045)
+            }
+
+            .pulse {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: var(--cyan);
+                box-shadow: 0 0 12px var(--cyan)
+            }
+
+            h1 {
+                font-size: clamp(35px,5vw,62px);
+                line-height: 1.28;
+                margin: 22px 0 15px;
+                font-weight: 900;
+                letter-spacing: -1.5px
+            }
+
+            .gradient-text {
+                background: linear-gradient(90deg,var(--cyan),#fff,var(--pink));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent
+            }
+
+            .hero-copy {
+                color: var(--muted);
+                font-size: 15px;
+                max-width: 570px
+            }
+
+            .hero-actions {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-top: 28px;
+                flex-wrap: wrap
+            }
+
+            .btn {
+                border: 0;
+                border-radius: 14px;
+                padding: 12px 22px;
+                font-weight: 800;
+                font-size: 13px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 9px;
+                transition: .2s
+            }
+
+            .btn-primary {
+                color: #17091c;
+                background: linear-gradient(100deg,var(--cyan),#6fffe9);
+                box-shadow: 0 8px 28px rgba(0,245,212,.2)
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 32px rgba(0,245,212,.32)
+            }
+
+            .btn-ghost {
+                color: var(--text);
+                border: 1px solid var(--line);
+                background: rgba(255,255,255,.035)
+            }
+
+            .btn-ghost:hover {
+                border-color: var(--pink);
+                box-shadow: var(--glow)
+            }
+
+            .hero-stats {
+                display: flex;
+                gap: 30px;
+                margin-top: 35px
+            }
+
+            .stat strong {
+                font-size: 21px;
+                color: var(--cyan);
+                display: block
+            }
+
+            .stat span {
+                font-size: 11px;
+                color: var(--muted)
+            }
+
+            .hero-art {
+                min-height: 380px;
+                display: grid;
+                place-items: center;
+                position: relative
+            }
+
+            .orbit {
+                width: 330px;
+                height: 330px;
+                border-radius: 50%;
+                border: 1px solid rgba(0,245,212,.28);
+                display: grid;
+                place-items: center;
+                position: relative;
+                box-shadow: inset 0 0 55px rgba(0,245,212,.06),0 0 55px rgba(240,0,255,.08)
+            }
+
+            .orbit:before,.orbit:after {
+                content: "";
+                position: absolute;
+                border: 1px dashed rgba(240,0,255,.35);
+                border-radius: 50%;
+                inset: 24px;
+                animation: spin 26s linear infinite
+            }
+
+            .orbit:after {
+                inset: -22px;
+                border-color: rgba(0,245,212,.2);
+                animation-direction: reverse;
+                animation-duration: 34s
+            }
+
+            .core {
+                width: 170px;
+                height: 170px;
+                border-radius: 42px;
+                display: grid;
+                place-items: center;
+                background: linear-gradient(145deg,#42135b,#152c43);
+                border: 1px solid rgba(0,245,212,.45);
+                box-shadow: 0 0 45px rgba(240,0,255,.24),inset 0 0 30px rgba(0,245,212,.12);
+                transform: rotate(-8deg)
+            }
+
+            .core svg {
+                width: 90px;
+                height: 90px;
+                fill: url(#tgGradient);
+                filter: drop-shadow(0 0 15px rgba(0,245,212,.6))
+            }
+
+            .float-chip {
+                position: absolute;
+                padding: 10px 14px;
+                border-radius: 14px;
+                background: rgba(33,17,47,.9);
+                border: 1px solid var(--line);
+                box-shadow: var(--shadow);
+                font-size: 11px;
+                color: var(--muted);
+                backdrop-filter: blur(10px)
+            }
+
+            .float-chip b {
+                color: var(--cyan);
+                display: block;
+                font-size: 14px
+            }
+
+            .chip-a {
+                top: 30px;
+                right: 0
+            }
+
+            .chip-b {
+                bottom: 28px;
+                left: 0
+            }
+
+            .chip-c {
+                bottom: 62px;
+                right: 5px
+            }
+
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg)
+                }
+            }
+
+            .trust-strip {
+                border-block:1px solid rgba(255,255,255,.07);background: rgba(255,255,255,.018);
+                padding: 18px 0
+            }
+
+            .trust-items {
+                display: flex;
+                justify-content: space-around;
+                gap: 15px;
+                flex-wrap: wrap;
+                color: var(--muted);
+                font-size: 12px
+            }
+
+            .trust-items span {
+                display: flex;
+                align-items: center;
+                gap: 8px
+            }
+
+            .trust-items i {
+                width: 7px;
+                height: 7px;
+                background: var(--pink);
+                border-radius: 50%;
+                box-shadow: 0 0 9px var(--pink)
+            }
+
+            .section {
+                padding: 76px 0
+            }
+
+            .section-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+                gap: 20px;
+                margin-bottom: 27px
+            }
+
+            .section-kicker {
+                color: var(--pink);
+                font-size: 11px;
+                font-weight: 800;
+                letter-spacing: 1px
+            }
+
+            .section h2 {
+                font-size: clamp(25px,3vw,36px);
+                margin: 5px 0 0;
+                font-weight: 900
+            }
+
+            .section-desc {
+                color: var(--muted);
+                font-size: 13px;
+                margin: 7px 0 0
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 17px
+            }
+
+            .service-card {
+                position: relative;
+                overflow: hidden;
+                border: 1px solid var(--line);
+                border-radius: 22px;
+                background: linear-gradient(145deg,rgba(40,22,56,.95),rgba(20,12,32,.95));
+                padding: 23px;
+                min-height: 240px;
+                transition: .25s
+            }
+
+            .service-card:before {
+                content: "";
+                position: absolute;
+                width: 160px;
+                height: 160px;
+                border-radius: 50%;
+                background: var(--card-glow,var(--pink));
+                filter: blur(90px);
+                opacity: .16;
+                left: -65px;
+                top: -70px
+            }
+
+            .service-card:hover {
+                transform: translateY(-6px);
+                border-color: var(--cyan);
+                box-shadow: 0 18px 45px rgba(0,0,0,.25),0 0 22px rgba(0,245,212,.08)
+            }
+
+            .service-icon {
+                width: 53px;
+                height: 53px;
+                border-radius: 17px;
+                display: grid;
+                place-items: center;
+                background: rgba(240,0,255,.1);
+                border: 1px solid rgba(240,0,255,.3);
+                color: var(--cyan);
+                margin-bottom: 17px
+            }
+
+            .service-icon svg {
+                width: 25px;
+                height: 25px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 1.7
+            }
+
+            .service-card h3 {
+                margin: 0 0 6px;
+                font-size: 17px
+            }
+
+            .service-card p {
+                color: var(--muted);
+                font-size: 12px;
+                margin: 0 0 18px;
+                min-height: 44px
+            }
+
+            .service-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: space-between
+            }
+
+            .service-price {
+                font-size: 11px;
+                color: var(--muted)
+            }
+
+            .service-price b {
+                color: var(--cyan);
+                font-size: 13px
+            }
+
+            .small-link {
+                border: 1px solid var(--line);
+                border-radius: 11px;
+                padding: 7px 12px;
+                color: var(--text);
+                background: rgba(255,255,255,.03);
+                font-size: 11px;
+                font-weight: 700
+            }
+
+            .small-link:hover {
+                border-color: var(--pink);
+                color: var(--cyan)
+            }
+
+            .feature-band {
+                border: 1px solid var(--line2);
+                border-radius: 26px;
+                background: linear-gradient(110deg,rgba(0,245,212,.07),rgba(240,0,255,.07));
+                padding: 28px;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: 20px
+            }
+
+            .feature-band h3 {
+                font-size: 20px;
+                margin: 0 0 5px
+            }
+
+            .feature-band p {
+                font-size: 12px;
+                color: var(--muted);
+                margin: 0
+            }
+
+            .feature-badges {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap
+            }
+
+            .feature-badges span {
+                font-size: 10px;
+                padding: 7px 10px;
+                border: 1px solid var(--line);
+                border-radius: 20px;
+                color: var(--cyan)
+            }
+
+            .steps {
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                gap: 14px
+            }
+
+            .step {
+                padding: 21px;
+                border-radius: 18px;
+                background: rgba(33,17,47,.72);
+                border: 1px solid rgba(255,255,255,.07)
+            }
+
+            .step-num {
+                font-size: 26px;
+                font-weight: 900;
+                color: var(--pink);
+                opacity: .9
+            }
+
+            .step h4 {
+                margin: 4px 0;
+                font-size: 14px
+            }
+
+            .step p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 11px
+            }
+
+            .faq-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px
+            }
+
+            .faq {
+                border: 1px solid rgba(255,255,255,.09);
+                border-radius: 16px;
+                background: rgba(33,17,47,.58);
+                overflow: hidden
+            }
+
+            .faq summary {
+                padding: 16px 18px;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 700;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                gap: 12px
+            }
+
+            .faq summary:after {
+                content: "+";
+                color: var(--cyan);
+                font-size: 19px;
+                line-height: 1
+            }
+
+            .faq[open] summary:after {
+                content: "−"
+            }
+
+            .faq p {
+                padding: 0 18px 17px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 12px
+            }
+
+            footer {
+                border-top: 1px solid var(--line);
+                padding: 35px 0 24px;
+                background: rgba(6,4,12,.45)
+            }
+
+            .footer-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 25px;
+                align-items: center
+            }
+
+            .footer-copy {
+                color: var(--muted);
+                font-size: 11px
+            }
+
+            .footer-links {
+                display: flex;
+                gap: 18px;
+                color: var(--muted);
+                font-size: 11px
+            }
+
+            .footer-links a:hover {
+                color: var(--cyan)
+            }
+
+            /* dialog and forms */
+            .overlay {
+                position: fixed;
+                inset: 0;
+                z-index: 80;
+                background: rgba(5,3,10,.78);
+                backdrop-filter: blur(9px);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                padding: 16px
+            }
+
+            .overlay.show {
+                display: flex
+            }
+
+            .dialog {
+                width: min(620px,100%);
+                max-height: min(90vh,850px);
+                overflow: auto;
+                background: linear-gradient(150deg,#281438,#130c20 70%);
+                border: 1px solid rgba(240,0,255,.38);
+                border-radius: 24px;
+                box-shadow: 0 25px 90px rgba(0,0,0,.6),0 0 45px rgba(240,0,255,.13);
+                position: relative
+            }
+
+            .dialog-head {
+                padding: 22px 24px 16px;
+                border-bottom: 1px solid rgba(255,255,255,.08);
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 15px
+            }
+
+            .dialog-head h3 {
+                margin: 0;
+                font-size: 19px
+            }
+
+            .dialog-head p {
+                margin: 4px 0 0;
+                color: var(--muted);
+                font-size: 11px
+            }
+
+            .close-btn {
+                width: 35px;
+                height: 35px;
+                border: 1px solid var(--line);
+                border-radius: 11px;
+                background: transparent;
+                color: var(--text);
+                font-size: 21px
+            }
+
+            .dialog-body {
+                padding: 22px 24px 24px
+            }
+
+            .form-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px
+            }
+
+            .field {
+                display: flex;
+                flex-direction: column;
+                gap: 7px
+            }
+
+            .field.full {
+                grid-column: 1/-1
+            }
+
+            .field label {
+                font-size: 12px;
+                color: #e9d9ee;
+                font-weight: 700
+            }
+
+            .field input,.field select {
+                width: 100%;
+                border: 1px solid rgba(240,0,255,.25);
+                border-radius: 12px;
+                padding: 12px 13px;
+                background: #160d22;
+                color: var(--text);
+                outline: none;
+                font-size: 13px
+            }
+
+            .field input:focus,.field select:focus {
+                border-color: var(--cyan);
+                box-shadow: 0 0 0 3px rgba(0,245,212,.08)
+            }
+
+            .field input::placeholder {
+                color: #826b8c
+            }
+
+            .hint {
+                font-size: 10px;
+                color: var(--muted)
+            }
+
+            .plan-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px
+            }
+
+            .plan-option {
+                border: 1px solid rgba(255,255,255,.1);
+                border-radius: 14px;
+                padding: 13px;
+                background: rgba(255,255,255,.025);
+                cursor: pointer;
+                text-align: right;
+                color: var(--text)
+            }
+
+            .plan-option.active {
+                border-color: var(--cyan);
+                background: rgba(0,245,212,.07);
+                box-shadow: inset 0 0 18px rgba(0,245,212,.05)
+            }
+
+            .plan-option b {
+                display: block;
+                font-size: 13px
+            }
+
+            .plan-option small {
+                display: block;
+                color: var(--muted);
+                font-size: 10px;
+                margin-top: 3px
+            }
+
+            .price-preview {
+                margin-top: 16px;
+                padding: 14px 16px;
+                border: 1px solid var(--line2);
+                border-radius: 14px;
+                background: rgba(0,245,212,.045);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 15px
+            }
+
+            .price-preview span {
+                color: var(--muted);
+                font-size: 11px
+            }
+
+            .price-preview strong {
+                color: var(--cyan);
+                font-size: 19px
+            }
+
+            .dialog-actions {
+                display: flex;
+                gap: 10px;
+                margin-top: 18px
+            }
+
+            .dialog-actions .btn {
+                flex: 1
+            }
+
+            .stepper {
+                display: flex;
+                align-items: center;
+                gap: 8px
+            }
+
+            .stepper button {
+                width: 35px;
+                height: 35px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                background: rgba(255,255,255,.04);
+                color: var(--text)
+            }
+
+            .stepper input {
+                flex: 1;
+                text-align: center;
+                direction: ltr
+            }
+
+            .error {
+                color: #ff7891;
+                font-size: 11px;
+                min-height: 16px;
+                margin-top: 8px
+            }
+
+            .cart-empty {
+                text-align: center;
+                padding: 30px 10px;
+                color: var(--muted);
+                font-size: 13px
+            }
+
+            .cart-item {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 12px;
+                padding: 14px 0;
+                border-bottom: 1px solid rgba(255,255,255,.08)
+            }
+
+            .cart-item b {
+                font-size: 13px
+            }
+
+            .cart-item small {
+                display: block;
+                color: var(--muted);
+                font-size: 10px
+            }
+
+            .cart-item strong {
+                color: var(--cyan);
+                font-size: 12px;
+                white-space: nowrap
+            }
+
+            .remove-item {
+                border: 0;
+                background: transparent;
+                color: var(--danger);
+                font-size: 11px;
+                padding: 3px 0
+            }
+
+            .cart-total {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 17px;
+                font-size: 13px
+            }
+
+            .cart-total strong {
+                color: var(--cyan);
+                font-size: 20px
+            }
+
+            .notice {
+                font-size: 10px;
+                color: var(--muted);
+                margin-top: 13px;
+                line-height: 1.9
+            }
+
+            .toast {
+                position: fixed;
+                bottom: 22px;
+                left: 50%;
+                transform: translate(-50%,20px);
+                opacity: 0;
+                pointer-events: none;
+                z-index: 120;
+                background: #1b2930;
+                border: 1px solid rgba(0,245,212,.4);
+                color: #eafffb;
+                padding: 11px 18px;
+                border-radius: 13px;
+                font-size: 12px;
+                box-shadow: var(--shadow);
+                transition: .25s;
+                white-space: nowrap
+            }
+
+            .toast.show {
+                opacity: 1;
+                transform: translate(-50%,0)
+            }
+
+            .mobile-nav {
+                display: none
+            }
+
+            @media(max-width: 900px) {
+                .navlinks {
+                    gap:14px
+                }
+
+                .hero-grid {
+                    gap: 20px
+                }
+
+                .services-grid {
+                    grid-template-columns: repeat(2,1fr)
+                }
+
+                .steps {
+                    grid-template-columns: repeat(2,1fr)
+                }
+            }
+
+            @media(max-width: 650px) {
+                .container {
+                    width:min(100% - 26px,520px)
+                }
+
+                .nav {
+                    height: 68px;
+                    gap: 12px
+                }
+
+                .navlinks {
+                    display: none
+                }
+
+                .mobile-menu {
+                    display: grid
+                }
+
+                .brand-name {
+                    font-size: 16px
+                }
+
+                .hero {
+                    padding: 45px 0 35px
+                }
+
+                .hero-grid {
+                    grid-template-columns: 1fr
+                }
+
+                .hero-art {
+                    min-height: 285px;
+                    order: -1
+                }
+
+                .orbit {
+                    width: 245px;
+                    height: 245px
+                }
+
+                .core {
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 34px
+                }
+
+                .core svg {
+                    width: 70px;
+                    height: 70px
+                }
+
+                .chip-a {
+                    right: 2px;
+                    top: 12px
+                }
+
+                .chip-b {
+                    left: 0;
+                    bottom: 8px
+                }
+
+                .chip-c {
+                    right: 0;
+                    bottom: 20px
+                }
+
+                .hero-copy {
+                    font-size: 13px
+                }
+
+                .hero-stats {
+                    gap: 22px
+                }
+
+                .section {
+                    padding: 55px 0
+                }
+
+                .section-head {
+                    align-items: flex-start;
+                    flex-direction: column
+                }
+
+                .services-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 10px
+                }
+
+                .service-card {
+                    padding: 15px;
+                    min-height: 230px;
+                    border-radius: 17px
+                }
+
+                .service-card h3 {
+                    font-size: 14px
+                }
+
+                .service-card p {
+                    font-size: 10px;
+                    min-height: 54px
+                }
+
+                .service-icon {
+                    width: 43px;
+                    height: 43px;
+                    border-radius: 14px
+                }
+
+                .service-price {
+                    font-size: 9px
+                }
+
+                .service-price b {
+                    font-size: 11px
+                }
+
+                .small-link {
+                    font-size: 9px;
+                    padding: 6px 8px
+                }
+
+                .feature-band {
+                    grid-template-columns: 1fr;
+                    padding: 21px
+                }
+
+                .steps {
+                    gap: 9px
+                }
+
+                .step {
+                    padding: 15px
+                }
+
+                .faq-list {
+                    grid-template-columns: 1fr
+                }
+
+                .footer-row {
+                    align-items: flex-start;
+                    flex-direction: column
+                }
+
+                .footer-links {
+                    flex-wrap: wrap
+                }
+
+                .overlay {
+                    padding: 8px
+                }
+
+                .dialog {
+                    max-height: 94vh;
+                    border-radius: 19px
+                }
+
+                .dialog-head {
+                    padding: 17px 17px 13px
+                }
+
+                .dialog-body {
+                    padding: 17px
+                }
+
+                .form-grid {
+                    grid-template-columns: 1fr
+                }
+
+                .field.full {
+                    grid-column: auto
+                }
+
+                .plan-grid {
+                    grid-template-columns: 1fr 1fr
+                }
+
+                .mobile-nav {
+                    display: flex;
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 29;
+                    justify-content: space-around;
+                    padding: 9px 8px calc(9px + env(safe-area-inset-bottom));
+                    background: rgba(16,9,29,.94);
+                    backdrop-filter: blur(15px);
+                    border-top: 1px solid var(--line)
+                }
+
+                .mobile-nav a {
+                    font-size: 10px;
+                    color: var(--muted);
+                    display: grid;
+                    justify-items: center;
+                    gap: 2px
+                }
+
+                .mobile-nav svg {
+                    width: 19px;
+                    height: 19px;
+                    stroke: currentColor;
+                    fill: none;
+                    stroke-width: 1.8
+                }
+
+                footer {
+                    padding-bottom: 85px
+                }
+            }
+
+            @media(max-width: 380px) {
+                .services-grid {
+                    grid-template-columns:1fr
+                }
+
+                .service-card {
+                    min-height: unset
+                }
+
+                .hero-stats {
+                    gap: 15px
+                }
+
+                .plan-grid {
+                    grid-template-columns: 1fr
+                }
+            }
+
+            .insta-panel.active,.premium-plan.active {
+                border-color: var(--cyan)!important;
+                box-shadow: 0 0 22px rgba(0,245,212,.18),inset 0 0 18px rgba(0,245,212,.05);
+                background: linear-gradient(145deg,rgba(0,245,212,.10),rgba(40,22,56,.95))!important
+            }
+
+            .insta-panel:hover,.premium-plan:hover {
+                border-color: var(--pink)
+            }
+
+            /* === POLISHED SERVICE PICKER / CYBERPUNK SELECTION UI === */
+            .section#services .section-head {
+                margin-bottom: 34px
+            }
+
+            #services .section-head:after {
+                content: 'CHOOSE • CUSTOMIZE • ORDER';
+                direction: ltr;
+                display: inline-flex;
+                align-items: center;
+                padding: 8px 13px;
+                border: 1px solid rgba(0,245,212,.2);
+                border-radius: 30px;
+                color: var(--cyan);
+                font-size: 9px;
+                letter-spacing: 1.3px;
+                background: linear-gradient(90deg,rgba(0,245,212,.06),rgba(240,0,255,.06));
+                white-space: nowrap
+            }
+
+            #services .services-grid {
+                gap: 19px
+            }
+
+            #services .service-card {
+                min-height: 258px;
+                padding: 25px 24px 21px;
+                border-color: rgba(240,0,255,.22);
+                background: linear-gradient(145deg,rgba(43,24,61,.97),rgba(17,11,29,.98));
+                box-shadow: inset 0 1px rgba(255,255,255,.035),0 13px 32px rgba(0,0,0,.16)
+            }
+
+            #services .service-card:after {
+                content: 'SELECT SERVICE  ↗';
+                position: absolute;
+                top: 18px;
+                left: 18px;
+                font-size: 8px;
+                letter-spacing: 1px;
+                color: rgba(193,169,201,.62);
+                direction: ltr;
+                border: 1px solid rgba(255,255,255,.08);
+                border-radius: 20px;
+                padding: 5px 8px;
+                background: rgba(0,0,0,.12)
+            }
+
+            #services .service-card:hover {
+                transform: translateY(-7px);
+                border-color: rgba(0,245,212,.62);
+                box-shadow: 0 18px 42px rgba(0,0,0,.28),0 0 28px rgba(0,245,212,.1)
+            }
+
+            #services .service-icon {
+                width: 58px;
+                height: 58px;
+                border-radius: 19px;
+                box-shadow: inset 0 0 22px rgba(240,0,255,.07),0 8px 24px rgba(0,0,0,.18)
+            }
+
+            #services .service-card h3 {
+                font-size: 18px;
+                letter-spacing: -.2px
+            }
+
+            #services .service-card p {
+                font-size: 12px;
+                line-height: 2;
+                min-height: 49px
+            }
+
+            #services .service-bottom {
+                padding-top: 13px;
+                border-top: 1px solid rgba(255,255,255,.07)
+            }
+
+            #services .service-price b {
+                font-size: 14px
+            }
+
+            #services .small-link {
+                padding: 8px 14px;
+                border-color: rgba(0,245,212,.28);
+                background: linear-gradient(100deg,rgba(0,245,212,.08),rgba(240,0,255,.08));
+                transition: .2s
+            }
+
+            #services .small-link:hover {
+                background: var(--cyan);
+                color: #10091d;
+                border-color: var(--cyan)
+            }
+
+            .dialog {
+                width: min(700px,100%);
+                border-color: rgba(0,245,212,.28);
+                background: radial-gradient(circle at 100% 0%,rgba(0,245,212,.075),transparent 30%),radial-gradient(circle at 0% 100%,rgba(240,0,255,.08),transparent 35%),linear-gradient(150deg,#281438,#130c20 70%)
+            }
+
+            .dialog-head {
+                background: linear-gradient(90deg,rgba(0,245,212,.045),rgba(240,0,255,.045))
+            }
+
+            .dialog-head h3 {
+                font-size: 20px;
+                letter-spacing: -.3px
+            }
+
+            .dialog-body>.field>label,.dialog-body .field.full>label {
+                display: flex;
+                align-items: center;
+                gap: 9px;
+                margin-bottom: 3px;
+                font-size: 13px;
+                color: #fff
+            }
+
+            .dialog-body>.field>label:before,.dialog-body .field.full>label:before {
+                content: '';
+                width: 5px;
+                height: 15px;
+                border-radius: 8px;
+                background: linear-gradient(var(--cyan),var(--pink));
+                box-shadow: 0 0 10px rgba(0,245,212,.35)
+            }
+
+            .field input,.field select {
+                border-color: rgba(0,245,212,.17);
+                background: rgba(9,7,17,.76);
+                border-radius: 14px;
+                min-height: 47px
+            }
+
+            .field input:focus,.field select:focus {
+                border-color: var(--cyan);
+                box-shadow: 0 0 0 3px rgba(0,245,212,.09),0 0 18px rgba(0,245,212,.08)
+            }
+
+            .plan-grid {
+                gap: 12px
+            }
+
+            .plan-option {
+                position: relative;
+                overflow: hidden;
+                border-radius: 17px;
+                padding: 16px 15px;
+                border-color: rgba(240,0,255,.17);
+                background: linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+                transition: .22s
+            }
+
+            .plan-option:after {
+                content: 'CHOOSE';
+                position: absolute;
+                left: 11px;
+                top: 10px;
+                font-size: 8px;
+                letter-spacing: 1px;
+                color: rgba(193,169,201,.42);
+                direction: ltr
+            }
+
+            .plan-option:hover {
+                transform: translateY(-2px);
+                border-color: rgba(0,245,212,.48)
+            }
+
+            .plan-option.active {
+                border-color: var(--cyan);
+                background: linear-gradient(135deg,rgba(0,245,212,.12),rgba(240,0,255,.07));
+                box-shadow: inset 0 0 22px rgba(0,245,212,.055),0 0 20px rgba(0,245,212,.08)
+            }
+
+            .plan-option.active:after {
+                content: '✓ SELECTED';
+                color: var(--cyan)
+            }
+
+            .plan-option b {
+                font-size: 14px;
+                color: #fff
+            }
+
+            .plan-option small {
+                font-size: 10px;
+                line-height: 1.9
+            }
+
+            .price-preview {
+                padding: 16px 18px;
+                border-radius: 17px;
+                background: linear-gradient(100deg,rgba(0,245,212,.085),rgba(240,0,255,.055));
+                box-shadow: inset 0 0 20px rgba(0,245,212,.025)
+            }
+
+            .price-preview strong {
+                font-size: 20px;
+                text-shadow: 0 0 16px rgba(0,245,212,.25)
+            }
+
+            /* Instagram panel cards and textual package rows */
+            .insta-panel-list {
+                display: grid;
+                gap: 13px
+            }
+
+            .insta-panel-card {
+                position: relative;
+                padding: 16px;
+                border: 1px solid rgba(240,0,255,.18);
+                border-radius: 18px;
+                background: linear-gradient(145deg,rgba(42,23,58,.8),rgba(14,10,24,.9));
+                box-shadow: inset 0 1px rgba(255,255,255,.035);
+                overflow: hidden
+            }
+
+            .insta-panel-card:before {
+                content: '';
+                position: absolute;
+                inset: 0 auto 0 0;
+                width: 3px;
+                background: linear-gradient(var(--cyan),var(--pink));
+                opacity: .8
+            }
+
+            .insta-panel-top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                flex-wrap: wrap
+            }
+
+            .insta-panel-name {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 14px;
+                font-weight: 900;
+                letter-spacing: .45px
+            }
+
+            .insta-panel-mark {
+                width: 31px;
+                height: 31px;
+                display: grid;
+                place-items: center;
+                border-radius: 10px;
+                background: rgba(0,245,212,.09);
+                border: 1px solid rgba(0,245,212,.2);
+                color: var(--cyan);
+                font-size: 12px
+            }
+
+            .insta-status {
+                font-size: 9px;
+                font-weight: 800;
+                padding: 5px 10px;
+                border-radius: 30px;
+                letter-spacing: .3px
+            }
+
+            .insta-status.on {
+                color: var(--good);
+                background: rgba(56,230,166,.08);
+                border: 1px solid rgba(56,230,166,.2)
+            }
+
+            .insta-status.off {
+                color: #ff8da3;
+                background: rgba(255,85,119,.07);
+                border: 1px solid rgba(255,85,119,.18)
+            }
+
+            .insta-panel-note {
+                font-size: 10px;
+                color: var(--muted);
+                margin: 9px 0 12px;
+                line-height: 1.9;
+                padding-right: 41px
+            }
+
+            .insta-package-list {
+                display: grid;
+                gap: 7px
+            }
+
+            .insta-package-row {
+                display: grid;
+                grid-template-columns: minmax(70px,1fr) minmax(100px,1.2fr) auto;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 11px;
+                border: 1px solid rgba(255,255,255,.055);
+                border-radius: 12px;
+                background: rgba(255,255,255,.022);
+                transition: .18s
+            }
+
+            .insta-package-row:hover {
+                border-color: rgba(0,245,212,.25);
+                background: rgba(0,245,212,.035)
+            }
+
+            .insta-package-qty {
+                font-size: 11px;
+                color: #f6eafa;
+                font-weight: 700
+            }
+
+            .insta-package-price {
+                font-size: 12px;
+                color: var(--cyan);
+                font-weight: 900;
+                white-space: nowrap
+            }
+
+            .insta-package-row .small-link {
+                padding: 6px 13px;
+                border-color: rgba(0,245,212,.3);
+                color: var(--cyan);
+                background: rgba(0,245,212,.045)
+            }
+
+            .insta-package-row .small-link:hover {
+                background: var(--cyan);
+                color: #10091d
+            }
+
+            .insta-panel-card:has(.insta-status.off) {
+                filter: saturate(.72)
+            }
+
+            .insta-panel-card:has(.insta-status.off) .insta-panel-name {
+                opacity: .82
+            }
+
+            .insta-disabled-copy {
+                margin-top: 10px;
+                padding: 11px 13px;
+                border-radius: 12px;
+                background: rgba(255,85,119,.045);
+                border: 1px dashed rgba(255,85,119,.18);
+                font-size: 10px;
+                color: #c9aeb9
+            }
+
+            .premium-plan {
+                min-height: unset!important;
+                border-radius: 18px!important;
+                background: linear-gradient(145deg,rgba(51,31,66,.95),rgba(18,12,28,.98))!important;
+                border: 1px solid rgba(255,209,102,.2)!important
+            }
+
+            .premium-plan.active {
+                border-color: #ffd166!important;
+                box-shadow: 0 0 22px rgba(255,209,102,.12),inset 0 0 20px rgba(255,209,102,.06)!important
+            }
+
+            @media(max-width: 650px) {
+                #services .section-head:after {
+                    font-size:7px;
+                    padding: 6px 9px
+                }
+
+                #services .services-grid {
+                    gap: 10px
+                }
+
+                #services .service-card {
+                    min-height: 245px;
+                    padding: 15px 13px 14px
+                }
+
+                #services .service-card:after {
+                    top: 12px;
+                    left: 10px;
+                    font-size: 6px;
+                    padding: 4px 6px
+                }
+
+                #services .service-icon {
+                    width: 44px;
+                    height: 44px;
+                    margin-bottom: 12px
+                }
+
+                #services .service-card h3 {
+                    font-size: 13px
+                }
+
+                #services .service-card p {
+                    font-size: 10px;
+                    line-height: 1.9;
+                    min-height: 58px
+                }
+
+                #services .service-price b {
+                    font-size: 10px
+                }
+
+                .dialog {
+                    width: 100%
+                }
+
+                .insta-panel-card {
+                    padding: 13px
+                }
+
+                .insta-package-row {
+                    grid-template-columns: 1fr auto;
+                    gap: 7px
+                }
+
+                .insta-package-price {
+                    grid-column: 1;
+                    grid-row: 2
+                }
+
+                .insta-package-row .small-link {
+                    grid-column: 2;
+                    grid-row: 1/3
+                }
+
+                .insta-panel-note {
+                    padding-right: 0
+                }
+
+                .premium-plan {
+                    padding: 12px 7px!important
+                }
+            }
+
+            /* Color-coded plan identity and compact service-detail cards */
+            .insta-panel-card {
+                --panel-accent: #00f5d4;
+                --panel-soft: rgba(0,245,212,.09);
+                border-color: color-mix(in srgb,var(--panel-accent) 38%,transparent);
+                background: linear-gradient(145deg,color-mix(in srgb,var(--panel-accent) 10%,#21112f),rgba(14,10,24,.97));
+                box-shadow: inset 0 1px rgba(255,255,255,.05),0 12px 28px rgba(0,0,0,.18);
+                transition: transform .22s,border-color .22s,box-shadow .22s
+            }
+
+            .insta-panel-card:hover {
+                transform: translateY(-2px);
+                border-color: var(--panel-accent);
+                box-shadow: 0 12px 30px color-mix(in srgb,var(--panel-accent) 12%,transparent)
+            }
+
+            .insta-panel-card:before {
+                background: linear-gradient(180deg,var(--panel-accent),transparent 75%);
+                width: 4px
+            }
+
+            .insta-panel-card.panel-economy {
+                --panel-accent: #ff72c6;
+                --panel-soft: rgba(255,114,198,.1)
+            }
+
+            .insta-panel-card.panel-vip {
+                --panel-accent: #ff526f;
+                --panel-soft: rgba(255,82,111,.1)
+            }
+
+            .insta-panel-card.panel-a {
+                --panel-accent: #ffc45c;
+                --panel-soft: rgba(255,196,92,.1)
+            }
+
+            .insta-panel-card.panel-views {
+                --panel-accent: #56a8ff;
+                --panel-soft: rgba(86,168,255,.1)
+            }
+
+            .insta-panel-card.panel-likes {
+                --panel-accent: #b78aff;
+                --panel-soft: rgba(183,138,255,.1)
+            }
+
+            .insta-panel-card.panel-global {
+                --panel-accent: #55dfc1;
+                --panel-soft: rgba(85,223,193,.1)
+            }
+
+            .insta-panel-name {
+                color: var(--panel-accent)
+            }
+
+            .insta-panel-mark {
+                color: var(--panel-accent);
+                background: var(--panel-soft);
+                border-color: color-mix(in srgb,var(--panel-accent) 38%,transparent);
+                box-shadow: 0 0 18px color-mix(in srgb,var(--panel-accent) 13%,transparent)
+            }
+
+            .insta-panel-card .insta-panel-note {
+                padding: 0;
+                margin: 12px 0 13px;
+                color: #e5d7e9
+            }
+
+            .panel-detail-grid {
+                display: grid;
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                gap: 7px;
+                margin: 10px 0 13px
+            }
+
+            .panel-detail {
+                min-width: 0;
+                padding: 8px 9px;
+                border-radius: 11px;
+                border: 1px solid color-mix(in srgb,var(--panel-accent) 24%,transparent);
+                background: linear-gradient(145deg,var(--panel-soft),rgba(255,255,255,.018));
+                display: flex;
+                flex-direction: column;
+                gap: 2px
+            }
+
+            .panel-detail small {
+                font-size: 8px;
+                color: #bdaec6;
+                line-height: 1.6
+            }
+
+            .panel-detail b {
+                font-size: 10px;
+                color: #fff;
+                line-height: 1.7
+            }
+
+            .insta-status.on {
+                color: var(--panel-accent);
+                background: var(--panel-soft);
+                border-color: color-mix(in srgb,var(--panel-accent) 32%,transparent)
+            }
+
+            .insta-package-row {
+                border-color: color-mix(in srgb,var(--panel-accent) 15%,transparent);
+                background: linear-gradient(100deg,var(--panel-soft),rgba(255,255,255,.018))
+            }
+
+            .insta-package-price {
+                color: var(--panel-accent)
+            }
+
+            .insta-package-row .small-link {
+                border-color: color-mix(in srgb,var(--panel-accent) 38%,transparent);
+                color: var(--panel-accent);
+                background: var(--panel-soft)
+            }
+
+            .insta-package-row .small-link:hover {
+                background: var(--panel-accent);
+                border-color: var(--panel-accent);
+                color: #160b20
+            }
+
+            .plan-option {
+                --plan-accent: #00f5d4;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                text-align: right;
+                min-height: 105px
+            }
+
+            .plan-option[data-plan="Economy"],.plan-option[data-vplan="Economy"] {
+                --plan-accent: #ff72c6
+            }
+
+            .plan-option[data-plan="VIP++"],.plan-option[data-vplan="VIP"] {
+                --plan-accent: #ff526f
+            }
+
+            .plan-option[data-plan="A++"] {
+                --plan-accent: #ffc45c
+            }
+
+            .plan-option[data-plan="Super Plus"] {
+                --plan-accent: #55dfc1
+            }
+
+            .plan-option:before {
+                content: '';
+                position: absolute;
+                inset: 0 0 auto;
+                height: 3px;
+                background: var(--plan-accent);
+                opacity: .85
+            }
+
+            .plan-option b {
+                color: var(--plan-accent)
+            }
+
+            .plan-option.active {
+                border-color: var(--plan-accent);
+                background: linear-gradient(135deg,color-mix(in srgb,var(--plan-accent) 15%,transparent),rgba(240,0,255,.045));
+                box-shadow: inset 0 0 20px color-mix(in srgb,var(--plan-accent) 7%,transparent),0 0 18px color-mix(in srgb,var(--plan-accent) 12%,transparent)
+            }
+
+            .plan-option.active:after {
+                color: var(--plan-accent)
+            }
+
+            .plan-info-strip {
+                display: grid;
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                gap: 8px;
+                margin: 12px 0 3px
+            }
+
+            .plan-info-tile {
+                padding: 9px 10px;
+                border: 1px solid rgba(255,255,255,.075);
+                border-radius: 12px;
+                background: linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+                display: flex;
+                flex-direction: column;
+                gap: 2px
+            }
+
+            .plan-info-tile small {
+                font-size: 8px;
+                color: var(--muted)
+            }
+
+            .plan-info-tile b {
+                font-size: 10px;
+                color: #fff;
+                overflow-wrap: anywhere
+            }
+
+            #memberPlanGrid .plan-info-strip {
+                grid-column: 1/-1;
+                width: 100%
+            }
+
+            @media(max-width: 560px) {
+                .panel-detail-grid,.plan-info-strip {
+                    grid-template-columns:repeat(2,minmax(0,1fr))
+                }
+
+                .panel-detail:last-child {
+                    grid-column: span 2
+                }
+
+                .plan-option {
+                    min-height: 100px;
+                    padding: 14px 11px
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topline"></div>
+        <header>
+            <div class="container nav">
+                <a class="brand" href="#home" aria-label="Telegram Shop">
+                    <span class="brand-mark">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21.7 3.2 18.5 20c-.2 1.2-.9 1.5-1.9.9l-5.2-3.8-2.5 2.4c-.3.3-.5.5-1 .5l.4-5.3 9.6-8.7c.4-.4-.1-.6-.6-.2L5.8 13.1l-5.1-1.6c-1.1-.4-1.1-1.1.3-1.6L21 2.1c.9-.4 1.7.2 1.3 1.1Z"/>
+                        </svg>
+                    </span>
+                    <span class="brand-name">
+                        TELEGRAM <span>SHOP</span>
+                    </span>
+                </a>
+                <nav class="navlinks">
+                    <a href="#home">خانه</a>
+                    <a href="#services">سرویس‌ها</a>
+                    <a href="#how">راهنمای خرید</a>
+                    <a href="#faq">سوالات متداول</a>
+                </nav>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="cartOpen" aria-label="سبد خرید">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 3h2l2.2 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 8H6"/>
+                            <circle cx="10" cy="21" r="1"/>
+                            <circle cx="18" cy="21" r="1"/>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="icon-btn mobile-menu" id="mobileMenu" aria-label="منو">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="hero" id="home">
+                <div class="container hero-grid">
+                    <div>
+                        <div class="eyebrow">
+                            <i class="pulse"></i>
+                            نسل جدید خدمات تلگرام
+                        </div>
+                        <h1>
+                            قدرت کانالت رو<br>
+                            <span class="gradient-text">به سطح بعدی ببر</span>
+                        </h1>
+                        <p class="hero-copy">خدمات رشد و ارتقای تلگرام، با انتخاب سرویس و ثبت سفارش در چند قدم ساده. سرویس موردنظرت رو انتخاب کن و جزئیات سفارش رو همین‌جا وارد کن.</p>
+                        <div class="hero-actions">
+                            <a class="btn btn-primary" href="#services">
+                                مشاهده سرویس‌ها <span>←</span>
+                            </a>
+                            <a class="btn btn-ghost" href="#how">راهنمای سفارش</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <strong>24/7</strong>
+                                <span>ثبت سفارش آنلاین</span>
+                            </div>
+                            <div class="stat">
+                                <strong>3 مرحله</strong>
+                                <span>تا ثبت سفارش</span>
+                            </div>
+                            <div class="stat">
+                                <strong>ساده</strong>
+                                <span>رابط کاربری سریع</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-art">
+                        <div class="orbit">
+                            <div class="core">
+                                <svg viewBox="0 0 24 24">
+                                    <defs>
+                                        <linearGradient id="tgGradient" x1="0" y1="0" x2="1" y2="1">
+                                            <stop stop-color="#00f5d4"/>
+                                            <stop offset="1" stop-color="#f000ff"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M21.7 3.2 18.5 20c-.2 1.2-.9 1.5-1.9.9l-5.2-3.8-2.5 2.4c-.3.3-.5.5-1 .5l.4-5.3 9.6-8.7c.4-.4-.1-.6-.6-.2L5.8 13.1l-5.1-1.6c-1.1-.4-1.1-1.1.3-1.6L21 2.1c.9-.4 1.7.2 1.3 1.1Z"/>
+                                </svg>
+                            </div>
+                            <div class="float-chip chip-a">
+                                <b>TELEGRAM</b>
+                                DIGITAL SERVICES
+                            </div>
+                            <div class="float-chip chip-b">
+                                <b>FAST ORDER</b>
+                                ثبت سفارش سریع
+                            </div>
+                            <div class="float-chip chip-c">
+                                <b>24/7</b>
+                                همیشه در دسترس
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="trust-strip">
+                <div class="container trust-items">
+                    <span>
+                        <i></i>
+                        فرم سفارش آنلاین
+                    </span>
+                    <span>
+                        <i></i>
+                        محاسبه قیمت لحظه‌ای
+                    </span>
+                    <span>
+                        <i></i>
+                        سبد خرید یکپارچه
+                    </span>
+                    <span>
+                        <i></i>
+                        طراحی موبایل‌پسند
+                    </span>
+                </div>
+            </div>
+            <section class="section" id="services">
+                <div class="container">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">OUR SERVICES / 01</div>
+                            <h2>سرویس موردنظرت رو انتخاب کن</h2>
+                            <p class="section-desc">روی هر سرویس بزن تا پلن و اطلاعات سفارش رو وارد کنی.</p>
+                        </div>
+                    </div>
+                    <div class="services-grid">
+                        <article class="service-card" style="--card-glow:#f000ff">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM20 8v6m3-3h-6"/>
+                                </svg>
+                            </div>
+                            <h3>ممبر فیک تلگرام</h3>
+                            <p>انتخاب از بین چهار پلن Super Plus، Economy، A++ و VIP++ با تعداد دلخواه.</p>
+                            <div class="service-bottom">
+                                <div class="service-price">
+                                    شروع از <b>37 تومان</b>
+                                </div>
+                                <button class="small-link" data-service="members">ثبت سفارش ←</button>
+                            </div>
+                        </article>
+                        <article class="service-card" style="--card-glow:#00f5d4">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </div>
+                            <h3>ویو فیک تلگرام</h3>
+                            <p>پلن اقتصادی و VIP برای افزایش بازدید پست‌های کانال یا گروه.</p>
+                            <div class="service-bottom">
+                                <div class="service-price">
+                                    شروع از <b>99 تومان</b>
+                                </div>
+                                <button class="small-link" data-service="views">ثبت سفارش ←</button>
+                            </div>
+                        </article>
+                        <article class="service-card" style="--card-glow:#7b4dff">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <h3>Telegram Stars</h3>
+                            <p>ثبت تعداد استار موردنیاز و واردکردن آیدی تلگرام دریافت‌کننده.</p>
+                            <div class="service-bottom">
+                                <div class="service-price">
+                                    هر استار <b>4,660 تومان</b>
+                                </div>
+                                <button class="small-link" data-service="stars">ثبت سفارش ←</button>
+                            </div>
+                        </article>
+                        <article class="service-card" data-service="instagram" role="button" tabindex="0" style="--card-glow:#f58bff">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                                    <circle cx="12" cy="12" r="4"/>
+                                    <circle cx="18" cy="6" r="1"/>
+                                </svg>
+                            </div>
+                            <h3>خدمات اینستاگرام</h3>
+                            <p>فالوور، ویو، لایک ایرانی و خارجی، رأی نظرسنجی استوری و سیو پست.</p>
+                            <div class="service-bottom">
+                                <div class="service-price">
+                                    شروع از <b>500 تومان</b>
+                                </div>
+                                <button class="small-link" type="button">ثبت سفارش ←</button>
+                            </div>
+                        </article>
+                        <article class="service-card" data-service="premium" role="button" tabindex="0" style="--card-glow:#ffd166">
+                            <div class="service-icon" style="color:#ffd166;border-color:rgba(255,209,102,.4);background:rgba(255,209,102,.09)">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="m12 2 2.4 6.1L21 9l-5 4.3 1.5 6.7L12 16.5 6.5 20 8 13.3 3 9l6.6-.9L12 2Z"/>
+                                </svg>
+                            </div>
+                            <h3>Telegram Premium</h3>
+                            <p>اشتراک رسمی ۳، ۶ و ۱۲ ماهه با فرایند احراز هویت و ثبت نام کاربری.</p>
+                            <div class="service-bottom">
+                                <div class="service-price">
+                                    شروع از <b>3,760,650 تومان</b>
+                                </div>
+                                <button class="small-link" data-service="premium">مشاهده اشتراک ←</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section class="section" style="padding-top:10px">
+                <div class="container">
+                    <div class="feature-band">
+                        <div>
+                            <h3>سفارش‌هات رو یک‌جا مدیریت کن</h3>
+                            <p>هر سرویسی رو به سبد اضافه کن، تعداد و قیمت رو بررسی کن و خلاصه سفارش رو ببین.</p>
+                        </div>
+                        <div class="feature-badges">
+                            <span>CYBER UI</span>
+                            <span>SMART CART</span>
+                            <span>LIVE TOTAL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="how">
+                <div class="container">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">HOW IT WORKS / 02</div>
+                            <h2>فرآیند ثبت سفارش</h2>
+                            <p class="section-desc">بدون سردرگمی، مرحله‌به‌مرحله.</p>
+                        </div>
+                    </div>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-num">01</div>
+                            <h4>انتخاب سرویس</h4>
+                            <p>ممبر، ویو، استارز یا خدمات اینستاگرام رو انتخاب کن.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">02</div>
+                            <h4>تکمیل اطلاعات</h4>
+                            <p>پلن، تعداد و آیدی یا لینک مقصد رو وارد کن.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">03</div>
+                            <h4>افزودن به سبد</h4>
+                            <p>قیمت نهایی رو بررسی و سفارش رو به سبد اضافه کن.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">04</div>
+                            <h4>بررسی سفارش</h4>
+                            <p>سبد خرید و خلاصه سفارش رو مشاهده کن.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="faq">
+                <div class="container">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">FAQ / 03</div>
+                            <h2>سوالات متداول</h2>
+                        </div>
+                    </div>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>چطور سفارش ثبت کنم؟</summary>
+                            <p>روی سرویس موردنظر بزن، پلن و تعداد رو انتخاب کن، اطلاعات مقصد رو وارد کن و به سبد خرید اضافه کن.</p>
+                        </details>
+                        <details class="faq">
+                            <summary>قیمت سفارش چطور محاسبه می‌شه؟</summary>
+                            <p>برای بسته‌های مشخص قیمت ثابت نمایش داده می‌شه و برای سفارش سفارشی، مبلغ بر اساس نرخ ثبت‌شده همان پلن محاسبه می‌شه.</p>
+                        </details>
+                        <details class="faq">
+                            <summary>آیا پرداخت آنلاین فعاله؟</summary>
+                            <p>این نسخه رابط کاربری و پیش‌نمایش سفارش است؛ اتصال درگاه پرداخت و ثبت سفارش واقعی هنوز باید در بک‌اند سایت پیاده‌سازی بشه.</p>
+                        </details>
+                        <details class="faq">
+                            <summary>آیدی یا لینک مقصد کجا وارد می‌شه؟</summary>
+                            <p>بعد از انتخاب هر سرویس، فرم اختصاصی همان سرویس باز می‌شه و فیلد مقصد داخل فرم قرار داره.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container footer-row">
+                <a class="brand" href="#home">
+                    <span class="brand-mark">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21.7 3.2 18.5 20c-.2 1.2-.9 1.5-1.9.9l-5.2-3.8-2.5 2.4c-.3.3-.5.5-1 .5l.4-5.3 9.6-8.7c.4-.4-.1-.6-.6-.2L5.8 13.1l-5.1-1.6c-1.1-.4-1.1-1.1.3-1.6L21 2.1c.9-.4 1.7.2 1.3 1.1Z"/>
+                        </svg>
+                    </span>
+                    <span class="brand-name">
+                        TELEGRAM <span>SHOP</span>
+                    </span>
+                </a>
+                <div class="footer-copy">© 2026 Telegram Shop — تمامی حقوق محفوظ است.</div>
+                <div class="footer-links">
+                    <a href="#services">سرویس‌ها</a>
+                    <a href="#how">راهنمای خرید</a>
+                    <a href="#faq">سوالات متداول</a>
+                </div>
+            </div>
+        </footer>
+        <nav class="mobile-nav">
+            <a href="#home">
+                <svg viewBox="0 0 24 24">
+                    <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1Z"/>
+                </svg>
+                خانه
+            </a>
+            <a href="#services">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+                سرویس‌ها
+            </a>
+            <a href="#how">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 5h16M4 12h16M4 19h16"/>
+                </svg>
+                راهنما
+            </a>
+            <a href="#faq">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1.2 1.1-1.9 1.4-1.9 3M12 17h.01"/>
+                </svg>
+                سوالات
+            </a>
+        </nav>
+        <div class="overlay" id="orderOverlay" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+            <div class="dialog">
+                <div class="dialog-head">
+                    <div>
+                        <h3 id="orderTitle">ثبت سفارش</h3>
+                        <p id="orderSubtitle">اطلاعات سرویس رو تکمیل کن.</p>
+                    </div>
+                    <button class="close-btn" data-close="orderOverlay" aria-label="بستن">×</button>
+                </div>
+                <div class="dialog-body" id="orderBody"></div>
+            </div>
+        </div>
+        <div class="overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+            <div class="dialog">
+                <div class="dialog-head">
+                    <div>
+                        <h3 id="cartTitle">سبد خرید</h3>
+                        <p>سفارش‌های انتخاب‌شده</p>
+                    </div>
+                    <button class="close-btn" data-close="cartOverlay" aria-label="بستن">×</button>
+                </div>
+                <div class="dialog-body" id="cartBody"></div>
+            </div>
+        </div>
+        <div class="overlay" id="checkoutOverlay" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+            <div class="dialog">
+                <div class="dialog-head">
+                    <div>
+                        <h3 id="checkoutTitle">تکمیل اطلاعات خریدار</h3>
+                        <p>برای نمایش خلاصه سفارش، اطلاعات زیر رو وارد کن.</p>
+                    </div>
+                    <button class="close-btn" data-close="checkoutOverlay" aria-label="بستن">×</button>
+                </div>
+                <div class="dialog-body" id="checkoutBody"></div>
+            </div>
+        </div>
+        <div class="toast" id="toast" role="status"></div>
+        <script>
+            'use strict';
+            const money = n => Math.round(n).toLocaleString('en-US') + ' تومان';
+            const memberPlans = {
+                'Super Plus': {
+                    min: 100,
+                    max: 20000,
+                    rate: 37,
+                    time: '1 تا 12 ساعت',
+                    desc: 'پلن اقتصادی و سریع',
+                    packages: {
+                        1000: 52900,
+                        2000: 105800,
+                        3000: 159000,
+                        4000: 212000,
+                        5000: 265000
+                    }
+                },
+                'Economy': {
+                    min: 500,
+                    max: 100000,
+                    rate: 46,
+                    time: '1 تا 6 ساعت',
+                    desc: 'کیفیت اقتصادی',
+                    packages: {
+                        1000: 65800,
+                        2000: 131500,
+                        3000: 198000,
+                        4000: 263000,
+                        5000: 329000
+                    }
+                },
+                'A++': {
+                    min: 1000,
+                    max: 20000,
+                    rate: 78,
+                    time: '1 تا 6 ساعت',
+                    desc: 'کیفیت بالاتر و بدون ریزش',
+                    packages: {
+                        500: 55800,
+                        1000: 111500,
+                        2000: 223000,
+                        3000: 335000,
+                        4000: 446000,
+                        5000: 558000,
+                        6000: 669000,
+                        7000: 780000,
+                        8000: 892000,
+                        9000: 1003000,
+                        10000: 1115000
+                    }
+                },
+                'VIP++': {
+                    min: 500,
+                    max: 100000,
+                    rate: 112,
+                    time: '1 تا 3 ساعت',
+                    desc: 'پلن پیشنهادی، بدون ریزش',
+                    packages: {}
+                }
+            };
+            const viewPrices = {
+                Economy: {
+                    min: 100,
+                    max: 10000,
+                    time: '1 تا 48 ساعت',
+                    prices: {
+                        100: 99,
+                        200: 198,
+                        300: 297,
+                        400: 396,
+                        500: 495,
+                        1000: 990,
+                        2000: 2000,
+                        3000: 3000,
+                        4000: 4000,
+                        5000: 5000
+                    }
+                },
+                VIP: {
+                    min: 100,
+                    max: 10000,
+                    time: '1 تا 3 ساعت',
+                    prices: {
+                        100: 737,
+                        200: 1474,
+                        500: 3690,
+                        1000: 8000,
+                        2000: 14740,
+                        3000: 22200,
+                        4000: 29500,
+                        5000: 36900,
+                        6000: 45300,
+                        7000: 56600,
+                        8000: 61000,
+                        9000: 65400,
+                        10000: 76700
+                    }
+                }
+            };
+            let cart = [];
+            let currentService = '';
+            let selectedMemberPlan = 'Super Plus';
+            let selectedViewPlan = 'Economy';
+            const $ = id => document.getElementById(id);
+            function showToast(msg) {
+                const t = $('toast');
+                t.textContent = msg;
+                t.classList.add('show');
+                clearTimeout(showToast.timer);
+                showToast.timer = setTimeout( () => t.classList.remove('show'), 2500)
+            }
+            function openOverlay(id) {
+                $(id).classList.add('show');
+                document.body.style.overflow = 'hidden'
+            }
+            function closeOverlay(id) {
+                $(id).classList.remove('show');
+                if (!document.querySelector('.overlay.show'))
+                    document.body.style.overflow = ''
+            }
+            document.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => closeOverlay(b.dataset.close)));
+            document.querySelectorAll('.overlay').forEach(o => o.addEventListener('click', e => {
+                if (e.target === o)
+                    closeOverlay(o.id)
+            }
+            ));
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape')
+                    document.querySelectorAll('.overlay.show').forEach(o => closeOverlay(o.id))
+            }
+            );
+            function openOrder(service) {
+                currentService = service;
+                if (service === 'members')
+                    renderMembers();
+                if (service === 'views')
+                    renderViews();
+                if (service === 'stars')
+                    renderStars();
+                if (service === 'instagram')
+                    renderInstagram();
+                if (service === 'premium')
+                    renderPremium();
+                openOverlay('orderOverlay')
+            }
+            document.querySelectorAll('[data-service]').forEach(b => {
+                b.addEventListener('click', e => {
+                    if (e.target.closest('button'))
+                        e.stopPropagation();
+                    openOrder(b.dataset.service)
+                }
+                );
+                b.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openOrder(b.dataset.service)
+                    }
+                }
+                );
+            }
+            );
+            function renderMembers() {
+                $('orderTitle').textContent = 'ممبر فیک تلگرام';
+                $('orderSubtitle').textContent = 'پنل موردنظرت رو انتخاب کن و از بین بسته‌های آماده سفارش بده.';
+                let chosenMemberPlan = null
+                  , chosenMemberPack = null
+                  , chosenMemberQty = 0;
+                const planEntries = Object.entries(memberPlans);
+                const panelClass = name => name === 'Economy' ? 'economy' : name === 'VIP++' ? 'vip' : name === 'A++' ? 'a' : 'global';
+                $('orderBody').innerHTML = `<div class="field full"><label>۱. انتخاب پنل و بسته ممبر</label><div class="insta-panel-list">${planEntries.map( ([name,p], index) => {
+                    const packages = Object.entries(p.packages);
+                    const active = packages.length > 0;
+                    const note = name === 'VIP++' && !active ? 'بسته‌های این پنل هنوز برای سفارش فعال نشده‌اند.' : p.desc;
+                    return `<section class="insta-panel-card panel-${panelClass(name)}"><div class="insta-panel-top"><div class="insta-panel-name"><span class="insta-panel-mark">0${index + 1}</span><span>${name}</span></div><span class="insta-status ${active ? 'on' : 'off'}">${active ? '● آماده سفارش' : '● غیرفعال'}</span></div>${active ? `<div class="panel-detail-grid"><div class="panel-detail"><small>زمان انجام سفارش</small><b>${p.time}</b></div><div class="panel-detail"><small>ویژگی پلن</small><b>${p.desc}</b></div><div class="panel-detail"><small>قیمت پایه هر ممبر</small><b>${p.rate.toLocaleString('en-US')} تومان</b></div></div><p class="insta-panel-note">بسته موردنظرت رو از فهرست زیر انتخاب کن.</p><div class="insta-package-list">${packages.map( ([qty,price]) => `<div class="insta-package-row"><span class="insta-package-qty">${Number(qty).toLocaleString('en-US')} ممبر</span><b class="insta-package-price">${money(price)}</b><button type="button" class="small-link" data-member-plan="${name}" data-member-qty="${qty}">انتخاب بسته</button></div>`).join('')}</div>` : `<div class="insta-disabled-copy">${note}</div>`}</section>`;
+                }
+                ).join('')}</div></div><div id="memberOrderArea" style="display:none;margin-top:18px"><div class="field full"><label for="memberTarget">۲. آیدی یا لینک کانال / گروه</label><input id="memberTarget" placeholder="مثلاً @YourChannel یا لینک کانال" autocomplete="off"><span class="hint">آیدی یا لینک عمومی مقصد رو وارد کن.</span></div><div class="price-preview"><span id="memberPriceLabel">بسته انتخاب‌شده</span><strong id="memberPrice">—</strong></div><div class="error" id="memberError"></div><div class="dialog-actions"><button class="btn btn-primary" id="addMember">افزودن به سبد خرید</button><button class="btn btn-ghost" data-close="orderOverlay">انصراف</button></div></div><p class="notice">فقط بسته‌هایی که قیمت آن‌ها در فهرست نمایش داده شده قابل سفارش هستند؛ امکان واردکردن تعداد دلخواه وجود ندارد.</p>`;
+                $('orderBody').querySelectorAll('[data-member-plan]').forEach(btn => btn.addEventListener('click', () => {
+                    chosenMemberPlan = btn.dataset.memberPlan;
+                    chosenMemberPack = memberPlans[chosenMemberPlan].packages[btn.dataset.memberQty];
+                    const qty = Number(btn.dataset.memberQty);
+                    chosenMemberQty = qty;
+                    $('memberPriceLabel').textContent = `${qty.toLocaleString('en-US')} ممبر · ${chosenMemberPlan} · ${memberPlans[chosenMemberPlan].time}`;
+                    $('memberPrice').textContent = money(chosenMemberPack);
+                    $('memberError').textContent = '';
+                    $('memberOrderArea').style.display = 'block';
+                    $('memberOrderArea').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }
+                ));
+                $('addMember').addEventListener('click', () => {
+                    const target = $('memberTarget').value.trim();
+                    if (!chosenMemberPlan || chosenMemberPack === null)
+                        return;
+                    if (!target) {
+                        $('memberError').textContent = 'لطفاً آیدی یا لینک کانال / گروه رو وارد کن.';
+                        return
+                    }
+                    const qty = chosenMemberQty;
+                    addCart({
+                        service: 'ممبر فیک تلگرام',
+                        plan: chosenMemberPlan,
+                        target,
+                        qty,
+                        price: chosenMemberPack,
+                        detail: `${qty.toLocaleString('en-US')} ممبر · ${memberPlans[chosenMemberPlan].time}`
+                    });
+                    closeOverlay('orderOverlay');
+                }
+                );
+            }
+            function renderViews() {
+                $('orderTitle').textContent = 'ویو فیک تلگرام';
+                $('orderSubtitle').textContent = 'پنل موردنظرت رو انتخاب کن و از بین بسته‌های آماده سفارش بده.';
+                let chosenViewPack = null;
+                const entries = Object.entries(viewPrices);
+                const panelClass = name => name === 'Economy' ? 'economy' : 'vip';
+                $('orderBody').innerHTML = `<div class="field full"><label>۱. انتخاب پنل و بسته بازدید</label><div class="insta-panel-list">${entries.map( ([name,p], index) => `<section class="insta-panel-card panel-${panelClass(name)}"><div class="insta-panel-top"><div class="insta-panel-name"><span class="insta-panel-mark">0${index + 1}</span><span>${name === 'Economy' ? 'ECONOMY' : 'VIP'}</span></div><span class="insta-status on">● آماده سفارش</span></div><div class="panel-detail-grid"><div class="panel-detail"><small>زمان انجام سفارش</small><b>${p.time}</b></div><div class="panel-detail"><small>نوع سرویس</small><b>${name === 'Economy' ? 'اقتصادی' : 'سریع‌تر'}</b></div><div class="panel-detail"><small>تعداد قابل سفارش</small><b>${Math.min(...Object.keys(p.prices).map(Number)).toLocaleString('en-US')} تا ${Math.max(...Object.keys(p.prices).map(Number)).toLocaleString('en-US')}</b></div></div><p class="insta-panel-note">بسته موردنظرت رو از فهرست زیر انتخاب کن.</p><div class="insta-package-list">${Object.entries(p.prices).map( ([qty,price]) => `<div class="insta-package-row"><span class="insta-package-qty">${Number(qty).toLocaleString('en-US')} بازدید</span><b class="insta-package-price">${money(price)}</b><button type="button" class="small-link" data-view-plan="${name}" data-view-qty="${qty}">انتخاب بسته</button></div>`).join('')}</div></section>`).join('')}</div></div><div id="viewOrderArea" style="display:none;margin-top:18px"><div class="field full"><label for="viewTarget">۲. لینک پست تلگرام</label><input id="viewTarget" placeholder="لینک پست کانال یا گروه" autocomplete="off"><span class="hint">لینک پست عمومی مقصد رو وارد کن.</span></div><div class="price-preview"><span id="viewPriceLabel">بسته انتخاب‌شده</span><strong id="viewPrice">—</strong></div><div class="error" id="viewError"></div><div class="dialog-actions"><button class="btn btn-primary" id="addViews">افزودن به سبد خرید</button><button class="btn btn-ghost" data-close="orderOverlay">انصراف</button></div></div><p class="notice">فقط بسته‌هایی که قیمت آن‌ها نمایش داده شده قابل سفارش هستند.</p>`;
+                $('orderBody').querySelectorAll('[data-view-plan]').forEach(btn => btn.addEventListener('click', () => {
+                    const plan = btn.dataset.viewPlan
+                      , qty = Number(btn.dataset.viewQty)
+                      , price = viewPrices[plan].prices[qty];
+                    chosenViewPack = {
+                        plan,
+                        qty,
+                        price
+                    };
+                    $('viewPriceLabel').textContent = `${qty.toLocaleString('en-US')} بازدید · ${plan === 'Economy' ? 'ECONOMY' : 'VIP'} · ${viewPrices[plan].time}`;
+                    $('viewPrice').textContent = money(price);
+                    $('viewError').textContent = '';
+                    $('viewOrderArea').style.display = 'block';
+                    $('viewOrderArea').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    })
+                }
+                ));
+                $('addViews').addEventListener('click', () => {
+                    const target = $('viewTarget').value.trim();
+                    if (!chosenViewPack)
+                        return;
+                    if (!target) {
+                        $('viewError').textContent = 'لطفاً لینک پست رو وارد کن.';
+                        return
+                    }
+                    const {plan, qty, price} = chosenViewPack;
+                    addCart({
+                        service: 'ویو فیک تلگرام',
+                        plan,
+                        target,
+                        qty,
+                        price,
+                        detail: `${qty.toLocaleString('en-US')} بازدید · ${viewPrices[plan].time}`
+                    });
+                    closeOverlay('orderOverlay')
+                }
+                );
+            }
+            function renderStars() {
+                $('orderTitle').textContent = 'خرید Telegram Stars';
+                $('orderSubtitle').textContent = 'تعداد دلخواهت رو وارد کن و آیدی تلگرام دریافت‌کننده رو بنویس.';
+                $('orderBody').innerHTML = `<div class="form-grid"><div class="field full"><label for="starsTarget">۱. آیدی تلگرام دریافت‌کننده</label><input id="starsTarget" placeholder="مثلاً @username" autocomplete="off"></div><div class="field full"><label for="starsQty">۲. تعداد Stars</label><input id="starsQty" type="number" inputmode="numeric" min="50" max="1000" step="50" placeholder="تعداد بین 50 تا 1,000" required><span class="hint">قابل سفارش از 50 تا 1,000 استار · فقط مضرب‌های 50 قابل قبول است · قیمت هر استار 4,660 تومان</span></div></div><div class="price-preview"><span>مبلغ سفارش</span><strong id="starsPrice">پس از واردکردن تعداد</strong></div><div class="error" id="starsError"></div><div class="dialog-actions"><button class="btn btn-primary" id="addStars">افزودن به سبد خرید</button><button class="btn btn-ghost" data-close="orderOverlay">انصراف</button></div>`;
+                const qtyInput = $('starsQty');
+                const calc = () => {
+                    const raw = qtyInput.value
+                      , qty = Number(raw);
+                    $('starsError').textContent = '';
+                    if (!raw) {
+                        $('starsPrice').textContent = 'پس از واردکردن تعداد';
+                        return
+                    }
+                    if (!Number.isInteger(qty) || qty < 50 || qty > 1000 || qty % 50 !== 0) {
+                        $('starsPrice').textContent = '—';
+                        $('starsError').textContent = 'تعداد باید از 50 تا 1,000 و مضربی از 50 باشد.';
+                        return
+                    }
+                    $('starsPrice').textContent = money(qty * 4660)
+                }
+                ;
+                qtyInput.addEventListener('input', calc);
+                $('addStars').addEventListener('click', () => {
+                    const target = $('starsTarget').value.trim()
+                      , qty = Number(qtyInput.value);
+                    if (!target) {
+                        $('starsError').textContent = 'آیدی تلگرام دریافت‌کننده رو وارد کن.';
+                        return
+                    }
+                    if (!qtyInput.value || !Number.isInteger(qty) || qty < 50 || qty > 1000 || qty % 50 !== 0) {
+                        $('starsError').textContent = 'تعداد باید از 50 تا 1,000 و مضربی از 50 باشد.';
+                        qtyInput.focus();
+                        return
+                    }
+                    addCart({
+                        service: 'Telegram Stars',
+                        plan: 'Stars',
+                        target,
+                        qty,
+                        price: qty * 4660,
+                        detail: `${qty.toLocaleString('en-US')} استار`
+                    });
+                    closeOverlay('orderOverlay')
+                }
+                );
+            }
+            function renderInstagram() {
+                $('orderTitle').textContent = 'خدمات اینستاگرام';
+                $('orderSubtitle').textContent = 'سرویس را انتخاب کن؛ بسته‌ها به‌صورت فهرست متنی و مرتب نمایش داده می‌شوند.';
+                const fmt = n => Number(n).toLocaleString('en-US');
+                const plans = {
+                    'فالوور اینستاگرام': [{
+                        id: 'economy',
+                        name: 'ECONOMY',
+                        active: true,
+                        min: 500,
+                        max: 20000,
+                        time: '۱ تا ۷۲ ساعت',
+                        note: 'پیج عمومی · بدون ضمانت جبران ریزش',
+                        prices: [[500, 178000], [1000, 356000], [2000, 712000], [3000, 1068000], [4000, 1424000], [5000, 1780000], [6000, 2136000], [7000, 2492000], [8000, 2848000], [9000, 3204000], [10000, 3560000], [15000, 5340000], [20000, 7120000]]
+                    }, {
+                        id: 'vip',
+                        name: 'VIP++',
+                        active: true,
+                        min: 200,
+                        max: 50000,
+                        time: '۱ تا ۱۲ ساعت',
+                        note: 'کیفیت بالا · جبران ریزش تا ۳۰ روز · ثبت درخواست جبران تا ۷۲ ساعت',
+                        prices: [[200, 251000], [500, 627000], [1000, 1254000], [2000, 2507000], [3000, 3760000], [4000, 5014000], [5000, 6267000], [6000, 7520000], [7000, 8774000], [8000, 10027000], [9000, 11280000], [10000, 12534000]]
+                    }, {
+                        id: 'economy2',
+                        name: 'ECONOMY 2',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'a',
+                        name: 'A++',
+                        active: false,
+                        prices: []
+                    }],
+                    'ویو اینستاگرام': [{
+                        id: 'premiumViews',
+                        name: 'PREMIUM VIEWS',
+                        active: true,
+                        min: 500,
+                        max: 100000,
+                        time: 'اجرای آنی',
+                        note: 'پیج عمومی · لینک پست یا Reel الزامی',
+                        prices: [[500, 3560], [1000, 7670], [2000, 15340], [3000, 30000], [4000, 38900], [5000, 44400], [6000, 50000], [7000, 62170], [8000, 69690], [9000, 73000], [10000, 79800], [15000, 100000], [20000, 140000]]
+                    }, {
+                        id: 'v2',
+                        name: 'پنل دوم',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'v3',
+                        name: 'پنل سوم',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'v4',
+                        name: 'پنل چهارم',
+                        active: false,
+                        prices: []
+                    }],
+                    'لایک ایرانی': [{
+                        id: 'mix',
+                        name: 'MIX LIKES',
+                        active: true,
+                        min: 100,
+                        max: 50000,
+                        time: 'اجرای آنی',
+                        note: 'پیج عمومی · لینک پست الزامی',
+                        prices: [[100, 13600], [200, 24000], [500, 55400], [1000, 115800], [2000, 222000], [3000, 333000], [4000, 444000], [5000, 554000], [6000, 665000], [7000, 776000], [8000, 887000], [9000, 997000], [10000, 1108000], [15000, 1662000], [20000, 2216000], [30000, 3324000], [40000, 4431000], [50000, 5539000]]
+                    }],
+                    'لایک خارجی': [{
+                        id: 'global',
+                        name: 'GLOBAL LIKES',
+                        active: true,
+                        min: 100,
+                        max: 50000,
+                        time: 'اجرای آنی',
+                        note: 'پروفایل خارجی · لینک پست الزامی · هر سفارش فقط برای یک پست',
+                        prices: [[100, 15480], [200, 25000], [500, 55400], [1000, 110800], [2000, 222000], [3000, 333000], [4000, 444000], [5000, 554000], [6000, 665000], [7000, 776000], [8000, 887000], [9000, 997000], [10000, 1108000], [15000, 1662000], [20000, 2216000], [30000, 3324000], [50000, 5539000]]
+                    }],
+                    'رأی نظرسنجی استوری': [{
+                        id: 'poll1',
+                        name: 'پنل ۱',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'poll2',
+                        name: 'پنل ۲',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'poll3',
+                        name: 'پنل ۳',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'poll4',
+                        name: 'پنل ۴',
+                        active: false,
+                        prices: []
+                    }],
+                    'سیو پست': [{
+                        id: 'save1',
+                        name: 'پنل ۱',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'save2',
+                        name: 'پنل ۲',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'save3',
+                        name: 'پنل ۳',
+                        active: false,
+                        prices: []
+                    }, {
+                        id: 'save4',
+                        name: 'پنل ۴',
+                        active: false,
+                        prices: []
+                    }]
+                };
+                const categories = Object.keys(plans);
+                let category = categories[0]
+                  , chosenPlan = null
+                  , chosenPack = null;
+                $('orderBody').innerHTML = `<div class="field full"><label for="instaService">۱. انتخاب سرویس</label><select id="instaService">${categories.map(x => `<option>${x}</option>`).join('')}</select></div><div id="instaPlanArea" style="margin-top:18px"></div><div id="instaOrderArea" style="display:none;margin-top:18px"><div class="field full"><label id="instaTargetLabel" for="instaTarget">لینک مقصد</label><input id="instaTarget" placeholder="لینک عمومی اینستاگرام" autocomplete="off"></div><div class="price-preview"><span id="instaPriceLabel">بسته انتخاب‌شده</span><strong id="instaPrice">—</strong></div><div class="error" id="instaError"></div><div class="dialog-actions"><button class="btn btn-primary" id="addInstagram">افزودن به سبد خرید</button><button class="btn btn-ghost" data-close="orderOverlay">انصراف</button></div></div><p class="notice">قیمت‌ها فقط برای بسته‌هایی نمایش داده می‌شوند که تعرفه آن‌ها ثبت شده است. سرویس‌ها و پنل‌های غیرفعال قابل سفارش نیستند.</p>`;
+                function renderPlans() {
+                    const list = plans[category];
+                    chosenPlan = null;
+                    chosenPack = null;
+                    $('instaOrderArea').style.display = 'none';
+                    $('instaError')?.replaceChildren();
+                    $('instaPlanArea').innerHTML = `<div class="field full"><label>۲. انتخاب پنل و بسته</label><div class="insta-panel-list">${list.map( (p, index) => `<section class="insta-panel-card panel-${p.id === 'economy' ? 'economy' : p.id === 'vip' ? 'vip' : p.id === 'a' ? 'a' : p.id === 'premiumViews' ? 'views' : p.id === 'mix' ? 'likes' : p.id === 'global' ? 'global' : 'economy'}"><div class="insta-panel-top"><div class="insta-panel-name"><span class="insta-panel-mark">0${index + 1}</span><span>${p.name}</span></div><span class="insta-status ${p.active ? 'on' : 'off'}">${p.active ? '● آماده سفارش' : '● غیرفعال'}</span></div>${p.active ? `<div class="panel-detail-grid"><div class="panel-detail"><small>زمان انجام سفارش</small><b>${p.time}</b></div><div class="panel-detail"><small>ضمانت / کیفیت</small><b>${p.id === 'vip' ? 'ضمانت جبران تا ۳۰ روز' : p.id === 'economy' ? 'بدون ضمانت جبران ریزش' : p.id === 'premiumViews' ? 'تحویل اجرای آنی' : 'طبق توضیحات سرویس'}</b></div><div class="panel-detail"><small>مهلت ثبت درخواست جبران</small><b>${p.id === 'vip' ? 'تا ۷۲ ساعت پس از سفارش' : p.id === 'economy' ? 'ندارد' : 'در این سرویس تعریف نشده'}</b></div></div><p class="insta-panel-note">${p.note}</p><div class="insta-package-list">${p.prices.map( ([q,price]) => `<div class="insta-package-row"><span class="insta-package-qty">${fmt(q)} عدد</span><b class="insta-package-price">${fmt(price)} تومان</b><button type="button" class="small-link" data-plan="${p.id}" data-qty="${q}">انتخاب بسته</button></div>`).join('')}</div>` : '<div class="insta-disabled-copy">این پنل فعلاً در دسترس نیست؛ به‌محض فعال‌شدن، بسته‌ها در همین قسمت نمایش داده می‌شوند.</div>'}</section>`).join('')}</div></div>`;
+                    $('instaPlanArea').querySelectorAll('[data-plan]').forEach(btn => btn.addEventListener('click', () => {
+                        chosenPlan = list.find(p => p.id === btn.dataset.plan);
+                        chosenPack = chosenPlan.prices.find(x => x[0] === Number(btn.dataset.qty));
+                        $('instaTargetLabel').textContent = category === 'فالوور اینستاگرام' ? '۳. لینک پیج عمومی' : '۳. لینک مقصد';
+                        $('instaTarget').placeholder = category === 'فالوور اینستاگرام' ? 'لینک پیج عمومی' : 'لینک پست یا Reel عمومی';
+                        $('instaPriceLabel').textContent = `${fmt(chosenPack[0])} عدد · ${chosenPlan.name} · ${chosenPlan.time}`;
+                        $('instaPrice').textContent = `${fmt(chosenPack[1])} تومان`;
+                        $('instaError').textContent = '';
+                        $('instaOrderArea').style.display = 'block';
+                        $('instaOrderArea').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest'
+                        })
+                    }
+                    ));
+                }
+                $('instaService').addEventListener('change', () => {
+                    category = $('instaService').value;
+                    renderPlans()
+                }
+                );
+                $('addInstagram').addEventListener('click', () => {
+                    const target = $('instaTarget').value.trim();
+                    if (!chosenPlan || !chosenPack) {
+                        $('instaError').textContent = 'ابتدا یک بسته را انتخاب کن.';
+                        return
+                    }
+                    if (!target) {
+                        $('instaError').textContent = 'لطفاً لینک مقصد را وارد کن.';
+                        return
+                    }
+                    const [qty,price] = chosenPack;
+                    addCart({
+                        service: category,
+                        plan: chosenPlan.name,
+                        target,
+                        qty,
+                        price,
+                        detail: `${fmt(qty)} عدد · ${chosenPlan.name} · ${chosenPlan.time} · ${chosenPlan.note}`
+                    });
+                    closeOverlay('orderOverlay')
+                }
+                );
+                renderPlans();
+            }
+            function renderPremium() {
+                $('orderTitle').textContent = 'اشتراک Telegram Premium';
+                $('orderSubtitle').textContent = 'اول اشتراک را انتخاب کن، سپس احراز هویت نمایشی و اطلاعات سفارش را تکمیل کن.';
+                const plans = [{
+                    months: 3,
+                    price: 3760650
+                }, {
+                    months: 6,
+                    price: 4990523
+                }, {
+                    months: 12,
+                    price: 9000000
+                }];
+                $('orderBody').innerHTML = `<div class="feature-band" style="grid-template-columns:1fr;gap:12px;margin-bottom:18px"><div><h3>تجربه پریمیوم تلگرام</h3><p>تحویل سریع ۱ الی ۲۴ ساعت · ضمانت اصالت و تضمین کیفیت سرویس · پشتیبانی شبانه‌روزی</p></div><div class="feature-badges"><span>OFFICIAL PREMIUM</span><span>FAST DELIVERY</span><span>24/7 SUPPORT</span></div></div><div class="field full"><label>۱. انتخاب مدت اشتراک</label><div class="services-grid" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">${plans.map( (p, i) => `<button type="button" class="service-card premium-plan ${i === 0 ? 'active' : ''}" data-months="${p.months}" style="padding:15px;min-height:0;text-align:center"><b style="display:block;color:var(--cyan);font-size:17px">${p.months} ماهه</b><strong style="display:block;font-size:14px;margin:8px 0">${p.price.toLocaleString('en-US')}</strong><small style="color:var(--muted)">تومان</small><span style="display:block;color:var(--pink);font-size:11px;margin-top:8px">انتخاب اشتراک</span></button>`).join('')}</div></div><div id="premiumAuth" style="margin-top:20px;border:1px solid var(--line2);border-radius:18px;padding:18px;background:rgba(0,245,212,.035)"><h4 style="margin:0 0 8px;color:var(--cyan)">۲. احراز هویت</h4><p class="notice">شماره موبایل فقط برای تأیید مالکیت شماره خود مشتری است. این فروشگاه هرگز کد ورود تلگرام یا رمز حساب تلگرام را درخواست نمی‌کند.</p><div class="field"><label for="premiumPhone">شماره موبایل</label><input id="premiumPhone" type="tel" inputmode="tel" placeholder="09xxxxxxxxx"></div><button class="btn btn-primary" id="sendDemoOtp" style="margin-top:12px">ارسال کد تأیید (نمایشی)</button><div id="premiumOtpArea" style="display:none;margin-top:14px"><div class="field"><label for="premiumOtp">کد تأیید آزمایشی</label><input id="premiumOtp" inputmode="numeric" maxlength="6" placeholder="کد ۶ رقمی نمایشی"></div><button class="btn btn-ghost" id="verifyDemoOtp" style="margin-top:10px">تأیید شماره</button></div><div id="premiumDetails" style="display:none;margin-top:16px"><div class="form-grid"><div class="field"><label for="premiumFirst">نام</label><input id="premiumFirst" placeholder="نام"></div><div class="field"><label for="premiumLast">نام خانوادگی</label><input id="premiumLast" placeholder="نام خانوادگی"></div><div class="field full"><label for="premiumEmail">ایمیل</label><input id="premiumEmail" type="email" placeholder="name@example.com"></div><div class="field full"><label for="premiumUsername">نام کاربری تلگرام</label><input id="premiumUsername" placeholder="@username"></div></div><div class="price-preview"><span id="premiumChosen">اشتراک انتخاب‌شده</span><strong id="premiumPrice">3,760,650 تومان</strong></div><div class="error" id="premiumError"></div><div class="dialog-actions"><button class="btn btn-primary" id="addPremium">افزودن اشتراک به سبد خرید</button></div></div><div class="error" id="premiumPhoneError"></div></div><p class="notice">این فایل پیش‌نمایش فرانت‌اند است: ارسال SMS واقعی فعال نیست. برای آزمایش رابط، پس از زدن «ارسال کد»، کد نمایشی <b>246810</b> را وارد کن. این کد هیچ ارتباطی با ورود تلگرام ندارد.</p>`;
+                let chosen = plans[0];
+                document.querySelectorAll('[data-months]').forEach(b => b.addEventListener('click', () => {
+                    chosen = plans.find(p => p.months === Number(b.dataset.months));
+                    document.querySelectorAll('[data-months]').forEach(x => x.classList.toggle('active', x === b));
+                    $('premiumChosen').textContent = `تلگرام پریمیوم ${chosen.months} ماهه`;
+                    $('premiumPrice').textContent = money(chosen.price)
+                }
+                ));
+                $('sendDemoOtp').addEventListener('click', () => {
+                    const phone = $('premiumPhone').value.trim();
+                    if (!/^09\d{9}$/.test(phone)) {
+                        $('premiumPhoneError').textContent = 'شماره موبایل معتبر ۱۱ رقمی وارد کن.';
+                        return
+                    }
+                    $('premiumPhoneError').textContent = 'کد نمایشی برای این پیش‌نمایش آماده شد؛ پیامکی ارسال نشده است.';
+                    $('premiumOtpArea').style.display = 'block'
+                }
+                );
+                $('verifyDemoOtp').addEventListener('click', () => {
+                    if ($('premiumOtp').value.trim() !== '246810') {
+                        $('premiumPhoneError').textContent = 'کد آزمایشی درست نیست.';
+                        return
+                    }
+                    $('premiumPhoneError').textContent = 'شماره در حالت نمایشی تأیید شد.';
+                    $('premiumDetails').style.display = 'block'
+                }
+                );
+                $('addPremium').addEventListener('click', () => {
+                    const first = $('premiumFirst').value.trim()
+                      , last = $('premiumLast').value.trim()
+                      , email = $('premiumEmail').value.trim()
+                      , username = $('premiumUsername').value.trim()
+                      , phone = $('premiumPhone').value.trim();
+                    if (!first || !last || !/^\S+@\S+\.\S+$/.test(email) || !/^@?[A-Za-z0-9_]{5,32}$/.test(username)) {
+                        $('premiumError').textContent = 'نام، نام خانوادگی، ایمیل معتبر و نام کاربری تلگرام را کامل کن.';
+                        return
+                    }
+                    addCart({
+                        service: 'Telegram Premium',
+                        plan: `${chosen.months} ماهه`,
+                        target: username,
+                        qty: 1,
+                        price: chosen.price,
+                        detail: `${chosen.months} ماهه · ${first} ${last} · ${email} · ${phone} · ${username}`
+                    });
+                    closeOverlay('orderOverlay')
+                }
+                );
+            }
+
+            function addCart(item) {
+                cart.push({
+                    ...item,
+                    id: Date.now() + Math.random()
+                });
+                updateCartCount();
+                showToast('به سبد خرید اضافه شد');
+            }
+            function updateCartCount() {
+                $('cartCount').textContent = cart.length.toLocaleString('en-US')
+            }
+            function renderCart() {
+                const body = $('cartBody');
+                if (!cart.length) {
+                    body.innerHTML = '<div class="cart-empty">سبد خریدت هنوز خالیه.<br>از بخش سرویس‌ها یک سفارش انتخاب کن.</div>';
+                    return
+                }
+                body.innerHTML = cart.map( (item, i) => `<div class="cart-item"><div><b>${item.service} — ${item.plan}</b><small>${item.detail}</small><small>مقصد: ${escapeHtml(item.target)}</small><button class="remove-item" data-remove="${i}">حذف سفارش</button></div><strong>${money(item.price)}</strong></div>`).join('') + `<div class="cart-total"><span>جمع کل</span><strong>${money(cart.reduce( (s, x) => s + x.price, 0))}</strong></div><div class="dialog-actions"><button class="btn btn-primary" id="checkoutStart">ادامه و تکمیل اطلاعات</button><button class="btn btn-ghost" data-close="cartOverlay">ادامه خرید</button></div><p class="notice">در این نسخه، سفارش در همین صفحه نگهداری می‌شود و هنوز به سرور یا درگاه پرداخت ارسال نمی‌شود.</p>`;
+                body.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', () => {
+                    cart.splice(Number(b.dataset.remove), 1);
+                    updateCartCount();
+                    renderCart()
+                }
+                ));
+                $('checkoutStart').addEventListener('click', () => {
+                    closeOverlay('cartOverlay');
+                    renderCheckout();
+                    openOverlay('checkoutOverlay')
+                }
+                );
+            }
+            function escapeHtml(s) {
+                return String(s).replace(/[&<>"']/g, c => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[c]))
+            }
+            $('cartOpen').addEventListener('click', () => {
+                renderCart();
+                openOverlay('cartOverlay')
+            }
+            );
+            function renderCheckout() {
+                const total = cart.reduce( (s, x) => s + x.price, 0);
+                $('checkoutBody').innerHTML = `<div class="form-grid"><div class="field"><label for="buyerFirst">نام</label><input id="buyerFirst" placeholder="نام"></div><div class="field"><label for="buyerLast">نام خانوادگی</label><input id="buyerLast" placeholder="نام خانوادگی"></div><div class="field full"><label for="buyerPhone">شماره موبایل</label><input id="buyerPhone" type="tel" inputmode="numeric" maxlength="11" placeholder="09xxxxxxxxx"></div></div><div class="price-preview"><span>جمع سفارش (${cart.length} مورد)</span><strong>${money(total)}</strong></div><div class="error" id="buyerError"></div><div class="dialog-actions"><button class="btn btn-primary" id="sendOtp">ارسال کد تأیید پیامکی</button><button class="btn btn-ghost" data-close="checkoutOverlay">بازگشت</button></div><p class="notice">کد تأیید، کد اختصاصی فروشگاه است و با کد ورود تلگرام تفاوت دارد.</p>`;
+                $('sendOtp').addEventListener('click', async () => {
+                    const first = $('buyerFirst').value.trim()
+                      , last = $('buyerLast').value.trim()
+                      , phone = $('buyerPhone').value.trim();
+                    if (!first || !last || !/^09\d{9}$/.test(phone)) {
+                        $('buyerError').textContent = 'نام، نام خانوادگی و شماره موبایل معتبر رو وارد کن.';
+                        return
+                    }
+                    const btn = $('sendOtp');
+                    btn.disabled = true;
+                    btn.textContent = 'در حال ارسال...';
+                    $('buyerError').textContent = '';
+                    try {
+                        const response = await fetch('/api/otp/send', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                phone
+                            })
+                        });
+                        const result = await response.json();
+                        if (!response.ok || !result.success)
+                            throw new Error(result.message || 'ارسال کد انجام نشد.');
+                        $('checkoutBody').innerHTML = `<div class="field full"><label>کد تأیید پیامکی</label><p class="notice">کد ارسال‌شده به شماره ${escapeHtml(phone)} را وارد کن.</p><input id="buyerOtp" inputmode="numeric" maxlength="6" placeholder="کد ۶ رقمی"></div><div class="error" id="otpError"></div><div class="dialog-actions"><button class="btn btn-primary" id="verifyOtp">تأیید شماره و ادامه</button><button class="btn btn-ghost" id="backToDetails">ویرایش اطلاعات</button></div>`;
+                        $('backToDetails').addEventListener('click', renderCheckout);
+                        $('verifyOtp').addEventListener('click', async () => {
+                            const code = $('buyerOtp').value.trim();
+                            if (!/^\d{4,6}$/.test(code)) {
+                                $('otpError').textContent = 'کد تأیید معتبر را وارد کن.';
+                                return
+                            }
+                            const v = $('verifyOtp');
+                            v.disabled = true;
+                            v.textContent = 'در حال بررسی...';
+                            try {
+                                const vr = await fetch('/api/otp/verify', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        phone,
+                                        code
+                                    })
+                                });
+                                const data = await vr.json();
+                                if (!vr.ok || !data.success)
+                                    throw new Error(data.message || 'کد تأیید صحیح نیست.');
+                                const summary = cart.map( (x, i) => `${i + 1}. ${x.service} (${x.plan}) — ${x.detail} — ${money(x.price)}`).join('\n');
+                                $('checkoutBody').innerHTML = `<div style="border:1px solid var(--line2);border-radius:15px;padding:16px;background:rgba(0,245,212,.035)"><b style="color:var(--cyan)">شماره موبایل تأیید شد</b><p style="font-size:12px;color:var(--muted)">${escapeHtml(first)} ${escapeHtml(last)} · ${escapeHtml(phone)}</p><pre style="white-space:pre-wrap;font:12px/2 Vazirmatn,Tahoma;color:var(--text)">${escapeHtml(summary)}</pre><div class="cart-total"><span>مبلغ کل</span><strong>${money(total)}</strong></div></div><div class="dialog-actions"><button class="btn btn-primary" id="finishDemo">تأیید اطلاعات</button></div><p class="notice">تأیید شماره انجام شد؛ ثبت نهایی سفارش و پرداخت باید از سمت سرور تکمیل شود.</p>`;
+                                $('finishDemo').addEventListener('click', () => {
+                                    closeOverlay('checkoutOverlay');
+                                    showToast('شماره تأیید شد؛ پرداخت واقعی هنوز فعال نیست.')
+                                }
+                                )
+                            } catch (err) {
+                                $('otpError').textContent = err.message;
+                                v.disabled = false;
+                                v.textContent = 'تأیید شماره و ادامه'
+                            }
+                        }
+                        );
+                    } catch (err) {
+                        $('buyerError').textContent = err.message === 'Failed to fetch' ? 'اتصال سرویس پیامکی هنوز روی سرور فعال نشده است.' : 'ارسال پیامک انجام نشد: ' + err.message;
+                        btn.disabled = false;
+                        btn.textContent = 'ارسال کد تأیید پیامکی'
+                    }
+                }
+                );
+            }
+            $('mobileMenu').addEventListener('click', () => {
+                document.querySelector('.navlinks').style.display = document.querySelector('.navlinks').style.display === 'flex' ? 'none' : 'flex';
+                document.querySelector('.navlinks').style.cssText = 'display:flex;position:absolute;top:68px;right:0;left:0;padding:18px 22px;background:#160d22;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;z-index:50'
+            }
+            );
+        </script>
+    </body>
+</html>
